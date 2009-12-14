@@ -53,3 +53,4 @@ __END__
 @@ index
 %h3 Domainy is a simple service for getting the base of a domain
 %h4 Simply GET /q/[domain] to get it's base
+%p NOTE: You can use SSL thanks to heroku's piggyback SSL
