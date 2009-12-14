@@ -2,7 +2,7 @@ require 'sinatra'
 require 'haml'
 require 'tlds'
 
-TEN_YEARS = 60 * 60 * 24 * 30 * 12 * 10
+TEN_YEARS = 60 * 60 * 24 * 30 * 12 * 10 # Overkill
 IPX       = /\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}/
 
 helpers do
@@ -26,11 +26,12 @@ end
 
 ## API Method
 get "/*" do
-  content_type  "text/plain"
+  content_type "text/plain"
+
   response["Cache-Control"] = "public, max-age=#{TEN_YEARS}"
 
-  domain = params[:splat][0]
-  extract_base_domain(domain)
+  domains = params[:splat][0]
+  domains.split("/").map {|domain| extract_base_domain(domain)}.join(",")
 end
 
 __END__
@@ -50,5 +51,5 @@ __END__
 
 @@ index
 %h3 Domainy is a simple service for getting the base of a domain
-%h4 Simply GET /q/[domain] to get it's base
+%h4 Simply GET /q/:domain1[/:domain2][/etc..] to get it's base
 %p NOTE: You can use SSL thanks to heroku's piggyback SSL

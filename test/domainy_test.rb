@@ -26,6 +26,11 @@ class DomainyTest < Test::Unit::TestCase
     test_domain \
       "thisIsMyMainWebsite.com.cl",
       "this.is.a.worst.shortly.subdomain.thisIsMyMainWebsite.com.cl"
+
+    test "handles multiple domains" do
+      get "/foo.com/bar.foo.co.uk"
+      assert_equal "foo.com,foo.co.uk", last_response.body
+    end
   end
 
 end
