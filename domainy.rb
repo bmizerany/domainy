@@ -42,10 +42,8 @@ __END__
     = yield
     #footer
       By Blake Mizerany (c) 2009
-      code from
+      code infulenced by
       %a{:href => "http://phosphorusandlime.blogspot.com/2007/08/php-get-base-domain.html"} phosphorusandlime
-      and a little style from
-      %a{:href => "http://down4.net"} down4.net
       %p
         code is
         %a{:href => "http://github.com/bmizerany/domainy"} here
