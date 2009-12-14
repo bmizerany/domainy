@@ -10,7 +10,7 @@ class DomainyTest < Test::Unit::TestCase
 
   def self.test_domain(expected, from)
     test "#{from} ~ #{expected}" do
-      get "/#{from}.txt"
+      get "/#{from}"
       assert last_response.ok?
       assert_equal expected, last_response.body
     end
